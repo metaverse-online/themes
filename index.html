@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Awesome Themes — Windows Looks Like macOS</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #f5f4f0;
+  --bg2: #eeecea;
+  --bg3: #e6e4e0;
+  --white: #ffffff;
+  --text: #1a1916;
+  --text2: #4a4845;
+  --muted: #8a8784;
+  --border: rgba(0,0,0,0.08);
+  --accent: #e8470a;
+  --accent2: #ff6b35;
+  --blue: #2563eb;
+  --green: #16a34a;
+  --shadow: 0 4px 24px rgba(0,0,0,0.10);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.18);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Sora', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 48px;
+  background: rgba(245,244,240,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.95rem; font-weight: 700; letter-spacing: -0.01em;
+}
+.nav-logo-icon {
+  width: 28px; height: 28px; border-radius: 7px;
+  background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: white;
+}
+.nav-dl-btn {
+  background: var(--accent);
+  color: white;
+  padding: 9px 22px; border-radius: 100px;
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-dl-btn:hover { background: #c73a06; transform: translateY(-1px); }
+
+/* HERO */
+.hero {
+  max-width: 1100px; margin: 0 auto;
+  padding: 80px 24px 60px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 64px; align-items: center;
+}
+
+.hero-left { }
+
+.live-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: #dcfce7; color: var(--green);
+  border: 1px solid #bbf7d0;
+  padding: 6px 14px; border-radius: 100px;
+  font-size: 0.75rem; font-weight: 600;
+  margin-bottom: 28px;
+  animation: fadeUp 0.5s ease both;
+}
+.live-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--green);
+  animation: blink 2s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+h1 {
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 20px;
+  animation: fadeUp 0.5s ease 0.1s both;
+}
+h1 em {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.hero-sub {
+  font-size: 1rem; color: var(--text2);
+  line-height: 1.75; margin-bottom: 36px;
+  font-weight: 400;
+  animation: fadeUp 0.5s ease 0.15s both;
+  max-width: 440px;
+}
+
+/* CTA BIG */
+.cta-primary {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--accent);
+  color: white;
+  padding: 18px 40px; border-radius: 14px;
+  font-size: 1.05rem; font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s;
+  box-shadow: 0 8px 30px rgba(232,71,10,0.35);
+  animation: fadeUp 0.5s ease 0.2s both;
+  margin-bottom: 14px;
+}
+.cta-primary:hover {
+  background: #c73a06;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(232,71,10,0.45);
+}
+.dl-icon { font-size: 1.2rem; }
+
+.cta-sub-note {
+  font-size: 0.78rem; color: var(--muted);
+  display: flex; align-items: center; gap: 6px;
+  animation: fadeUp 0.5s ease 0.25s both;
+}
+.check-icon { color: var(--green); font-weight: 700; }
+
+/* TRUST PILLS */
+.trust-row {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-top: 28px;
+  animation: fadeUp 0.5s ease 0.3s both;
+}
+.trust-pill {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.75rem; font-weight: 500; color: var(--text2);
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 6px 12px; border-radius: 100px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+/* HERO RIGHT - SCREENSHOT */
+.hero-right {
+  animation: fadeUp 0.6s ease 0.2s both;
+  position: relative;
+}
+.hero-right::before {
+  content: '';
+  position: absolute; inset: -20px;
+  background: radial-gradient(ellipse at 60% 40%, rgba(232,71,10,0.08), transparent 60%);
+  border-radius: 30px;
+}
+.window-frame {
+  background: var(--white);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  position: relative; z-index: 2;
+}
+.window-bar {
+  display: flex; align-items: center; gap: 6px;
+  padding: 11px 16px;
+  background: #f0efeb;
+  border-bottom: 1px solid var(--border);
+}
+.wd { width: 12px; height: 12px; border-radius: 50%; }
+.wd-r { background: #ff5f57; }
+.wd-y { background: #febc2e; }
+.wd-g { background: #28c840; }
+.window-bar-title {
+  margin: 0 auto;
+  font-size: 0.72rem; color: var(--muted); font-weight: 500;
+  transform: translateX(-20px);
+}
+.window-frame img {
+  display: block; width: 100%;
+}
+
+/* Floating stat cards */
+.float-card {
+  position: absolute; z-index: 3;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 16px;
+  box-shadow: var(--shadow);
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.78rem; font-weight: 600;
+  animation: floatY 3s ease-in-out infinite;
+}
+.float-card-1 {
+  bottom: -20px; left: -24px;
+  animation-delay: 0s;
+}
+.float-card-2 {
+  top: 20px; right: -28px;
+  animation-delay: 1.5s;
+}
+.float-icon { font-size: 1.2rem; }
+.float-val { font-size: 1rem; font-weight: 700; color: var(--accent); }
+.float-label { font-size: 0.7rem; color: var(--muted); font-weight: 400; }
+
+@keyframes floatY {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* SOCIAL PROOF BAR */
+.social-bar {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 48px;
+  display: flex; align-items: center; justify-content: center;
+  gap: 48px; flex-wrap: wrap;
+}
+.social-stat {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.85rem; font-weight: 500; color: var(--text2);
+}
+.social-stat strong { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+
+/* SECTION */
+.section {
+  max-width: 1060px; margin: 0 auto;
+  padding: 80px 24px;
+}
+.section-tag {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 16px;
+}
+.section-title {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800; letter-spacing: -0.025em; line-height: 1.15;
+  margin-bottom: 48px;
+}
+
+/* FEATURES GRID */
+.feat-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.feat-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 32px 28px;
+  transition: all 0.25s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.feat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.feat-emoji { font-size: 2rem; margin-bottom: 16px; display: block; }
+.feat-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+.feat-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+/* REVIEWS */
+.reviews-title {
+  text-align: center;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800; letter-spacing: -0.025em;
+  margin-bottom: 48px;
+}
+.reviews-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.review-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px;
+  transition: all 0.25s;
+}
+.review-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.review-stars { color: #f59e0b; font-size: 0.9rem; margin-bottom: 14px; }
+.review-text {
+  font-size: 0.88rem; color: var(--text2); line-height: 1.7;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.review-author { display: flex; align-items: center; gap: 10px; }
+.avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--bg3);
+}
+.author-name { font-size: 0.82rem; font-weight: 700; }
+.author-tag { font-size: 0.72rem; color: var(--muted); }
+
+/* BIG CTA */
+.cta-block {
+  background: var(--text);
+  border-radius: 28px;
+  padding: 80px 48px;
+  text-align: center;
+  max-width: 800px; margin: 0 auto 80px;
+  position: relative; overflow: hidden;
+}
+.cta-block::before {
+  content: '';
+  position: absolute; top: -80px; right: -80px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,71,10,0.3), transparent 70%);
+}
+.cta-block h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800; letter-spacing: -0.025em;
+  color: white; margin-bottom: 16px; line-height: 1.1;
+}
+.cta-block h2 em {
+  font-family: 'Lora', serif;
+  font-style: italic; font-weight: 400;
+  color: var(--accent2);
+}
+.cta-block p {
+  font-size: 0.95rem; color: rgba(255,255,255,0.6);
+  margin-bottom: 36px; line-height: 1.7;
+}
+.cta-big {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--accent);
+  color: white;
+  padding: 20px 52px; border-radius: 14px;
+  font-size: 1.15rem; font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s;
+  box-shadow: 0 8px 30px rgba(232,71,10,0.4);
+}
+.cta-big:hover { background: #c73a06; transform: translateY(-3px); box-shadow: 0 14px 40px rgba(232,71,10,0.5); }
+.cta-block .fallback {
+  margin-top: 16px; font-size: 0.78rem; color: rgba(255,255,255,0.4);
+}
+.cta-block .fallback a { color: rgba(255,255,255,0.65); }
+
+/* URGENCY TICKER */
+.urgency-bar {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 0.82rem; font-weight: 600;
+  color: #9a3412;
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-bottom: 24px;
+}
+.urgency-fire { animation: wiggle 0.5s ease-in-out infinite alternate; }
+@keyframes wiggle { from{transform:rotate(-5deg)} to{transform:rotate(5deg)} }
+
+/* STEPS */
+.steps-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0; position: relative;
+}
+.steps-grid::before {
+  content: '';
+  position: absolute;
+  top: 28px; left: calc(16.6% + 12px); right: calc(16.6% + 12px);
+  height: 2px; border-top: 2px dashed var(--border);
+}
+.step {
+  padding: 24px;
+  text-align: center;
+}
+.step-num {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  font-size: 1.1rem; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 6px 20px rgba(232,71,10,0.3);
+}
+.step-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+.step-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+footer {
+  max-width: 1060px; margin: 0 auto;
+  padding: 24px;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.78rem; color: var(--muted);
+  margin-bottom: 32px;
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(18px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.reveal { opacity:0; transform:translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; gap: 48px; }
+  .float-card-1, .float-card-2 { display: none; }
+  .feat-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; gap: 16px; }
+  .steps-grid::before { display: none; }
+  nav { padding: 14px 20px; }
+  .cta-block { padding: 48px 24px; margin: 0 24px 60px; }
+  .social-bar { gap: 24px; padding: 20px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">🍎</div>
+    Awesome Themes
+  </div>
+  <a class="nav-dl-btn" href="https://www.lequipe.fr/" target="_blank">⬇ Free Download</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="live-badge">
+      <span class="live-dot"></span>
+      500,000+ downloads this month
+    </div>
+
+    <h1>Your Windows,<br>but it looks like<br><em>macOS.</em></h1>
+
+    <p class="hero-sub">
+      The #1 free theme pack for Windows 10 &amp; 11. Transform your desktop in under 5 minutes — 200+ themes, 10,000+ wallpapers, zero slowdown.
+    </p>
+
+    <div class="urgency-bar">
+      <span class="urgency-fire">🔥</span>
+      1,243 people downloaded in the last hour
+    </div>
+
+    <a class="cta-primary" href="https://www.lequipe.fr/" target="_blank">
+      <span class="dl-icon">⬇</span>
+      FREE DOWNLOAD &amp; INSTALL
+    </a><br>
+
+    <div class="cta-sub-note">
+      <span class="check-icon">✓</span> 100% free &nbsp;
+      <span class="check-icon">✓</span> Virus-free &nbsp;
+      <span class="check-icon">✓</span> Works on Win 10 &amp; 11
+    </div>
+
+    <div class="trust-row">
+      <div class="trust-pill">⭐ 4.8/5 (12,400+ reviews)</div>
+      <div class="trust-pill">🛡️ Safe &amp; verified</div>
+      <div class="trust-pill">⚡ Lightweight</div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="window-frame">
+      <div class="window-bar">
+        <div class="wd wd-r"></div>
+        <div class="wd wd-y"></div>
+        <div class="wd wd-g"></div>
+        <span class="window-bar-title">Desktop — macOS Sequoia Theme</span>
+      </div>
+      <a href="https://ibb.co/N2dbDMDZ" target="_blank">
+        <img src="https://i.ibb.co/5hgwpPpB/image.png" alt="macOS theme preview" loading="eager"/>
+      </a>
+    </div>
+
+    <div class="float-card float-card-1">
+      <div>
+        <div class="float-val">500k+</div>
+        <div class="float-label">Downloads</div>
+      </div>
+      <span class="float-icon">📥</span>
+    </div>
+    <div class="float-card float-card-2">
+      <div>
+        <div class="float-val">4.8 ⭐</div>
+        <div class="float-label">Avg. rating</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF BAR -->
+<div class="social-bar reveal">
+  <div class="social-stat"><strong>500,000+</strong> total downloads</div>
+  <div class="social-stat"><strong>4.8/5</strong> average rating</div>
+  <div class="social-stat"><strong>200+</strong> themes included</div>
+  <div class="social-stat"><strong>10,000+</strong> HD wallpapers</div>
+  <div class="social-stat"><strong>0€</strong> completely free</div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section reveal">
+  <div class="section-tag">Simple 3-step setup</div>
+  <div class="section-title">Download. Install. <em style="font-family:'Lora',serif;font-style:italic;font-weight:400;">Enjoy.</em></div>
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title">Click Download</div>
+      <div class="step-desc">Hit the big orange button. The installer is small (&lt;10MB) and downloads in seconds.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title">Run the Installer</div>
+      <div class="step-desc">Double-click and follow 3 simple steps. No technical knowledge needed.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title">Pick Your Theme</div>
+      <div class="step-desc">Browse 200+ themes and wallpapers. Apply any look in one click.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section reveal" style="padding-top:0;">
+  <div class="section-tag">Everything included</div>
+  <div class="section-title">More than just a theme.</div>
+  <div class="feat-grid">
+    <div class="feat-card">
+      <span class="feat-emoji">🎨</span>
+      <div class="feat-title">200+ Themes</div>
+      <div class="feat-desc">From macOS Big Sur to Sequoia. Every style, perfectly replicated on Windows.</div>
+    </div>
+    <div class="feat-card">
+      <span class="feat-emoji">🖼️</span>
+      <div class="feat-title">10,000+ Wallpapers</div>
+      <div class="feat-desc">Ultra-HD wallpapers organized by style, color, and season. New ones added weekly.</div>
+    </div>
+    <div class="feat-card">
+      <span class="feat-emoji">⚡</span>
+      <div class="feat-title">Zero slowdown</div>
+      <div class="feat-desc">Uses less RAM than Chrome. Runs silently in the background with no performance hit.</div>
+    </div>
+    <div class="feat-card">
+      <span class="feat-emoji">🔒</span>
+      <div class="feat-title">100% Safe</div>
+      <div class="feat-desc">No spyware. No adware. VirusTotal certified clean. Trusted by 500,000+ users.</div>
+    </div>
+    <div class="feat-card">
+      <span class="feat-emoji">🔄</span>
+      <div class="feat-title">Auto-Updates</div>
+      <div class="feat-desc">New themes and wallpapers pushed automatically. Always fresh, always free.</div>
+    </div>
+    <div class="feat-card">
+      <span class="feat-emoji">🆓</span>
+      <div class="feat-title">Forever Free</div>
+      <div class="feat-desc">No subscription. No trial. No hidden fees. Every feature, always free.</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section reveal" style="padding-top:0;">
+  <div class="reviews-title">Loved by <em style="font-family:'Lora',serif;font-style:italic;">half a million</em> users</div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I've tried dozens of theme packs. This is the only one that actually looks exactly like macOS. My coworkers thought I switched computers."</p>
+      <div class="review-author">
+        <img class="avatar" src="https://i.pravatar.cc/80?img=3" alt="Marcus T."/>
+        <div>
+          <div class="author-name">Marcus T.</div>
+          <div class="author-tag">Windows 11 · Verified user</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Setup took 4 minutes. My desktop is now gorgeous. The wallpaper collection alone is worth it — I change mine every day."</p>
+      <div class="review-author">
+        <img class="avatar" src="https://i.pravatar.cc/80?img=47" alt="Priya S."/>
+        <div>
+          <div class="author-name">Priya S.</div>
+          <div class="author-tag">Windows 10 · Verified user</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Finally a theme pack that doesn't tank my performance. Looks stunning and I can't even notice it running. Highly recommend."</p>
+      <div class="review-author">
+        <img class="avatar" src="https://i.pravatar.cc/80?img=12" alt="Kevin L."/>
+        <div>
+          <div class="author-name">Kevin L.</div>
+          <div class="author-tag">Windows 11 · Verified user</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<div class="cta-block reveal">
+  <h2>Ready to transform<br>your desktop <em>today?</em></h2>
+  <p>Join 500,000+ users. Free forever. No registration, no credit card.</p>
+  <a class="cta-big" href="https://www.lequipe.fr/" target="_blank">
+    ⬇ FREE DOWNLOAD &amp; INSTALL
+  </a>
+  <div class="fallback">
+    Download not starting? <a href="https://www.lequipe.fr/" target="_blank">Direct link here</a>
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 Awesome Themes. All rights reserved.</span>
+  <span>Windows 10 &amp; 11 · 100% Free · Safe</span>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+reveals.forEach(el => obs.observe(el));
+
+// Live counter animation
+let count = 1243;
+setInterval(() => {
+  if(Math.random() > 0.5) count += Math.floor(Math.random() * 3) + 1;
+  const bars = document.querySelectorAll('.urgency-bar');
+  bars.forEach(b => {
+    b.innerHTML = `<span class="urgency-fire">🔥</span> ${count.toLocaleString()} people downloaded in the last hour`;
+  });
+}, 4000);
+</script>
+</body>
+</html>
